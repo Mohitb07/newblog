@@ -40,8 +40,6 @@ def create_article(request):
             "category":request.POST['category']
         }
         article = models.Article.objects.create(**article_data)
-        author =  models.Author.objects.filter(pk = request.POST['author'])
-        article.authors.set(author)
         context["success"]=True
     return render(request,'main/create_article.html',context)
 

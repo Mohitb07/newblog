@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width,initial-scale=1.0">
         <meta http-equiv="X-ua-Compartible" content="ie=edge">
-        <title>Blog application</title>
+        <title>Create Article</title>
         <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -66,26 +66,24 @@
         <p>Blog created succesfully</p>
     {% endif %}
     
-      <form action ="" method="POST">
-        <div class="form-group ">
+      <form action ="" method="POST" enctype="multipart/form-data">
+        <div class="container">
+        <div class="form-group">
           {% csrf_token %}
           <input type="text" name="title" class="form-control" placeholder="Enter Title"><br><br>
           </div>
           <textarea style="max-width: 100%;" name="content" class="form-control" placeholder="Content Here"></textarea><br><br>
-          <select name ="author" select class="custom-select mr-sm-2" class="sr-only" required>
-              {% for author in authors %}
-                  <option value ="{{ author.id }}">{{ author.name }}</option>
-              {% endfor %}
-          </select> <br><br>
           <select name="category" class="custom-select mr-sm-2" class="sr-only" required>
             <option value="gaming">Gaming</option>
             <option value="coding">Coding</option>
             <option value="sports">Sports</option>
             <option value="entertainment">Entertainment</option>
           </select>
-          <h4 style="text-align:center;"><button type="sumbit" class="btn btn-primary mb-2">Sumbit</button>
-            <button type="reset" class="btn btn-primary mb-2">Reset</button></h4>
+          <h4 style="text-align:center;">
+            <button type="sumbit" class="btn btn-primary mb-2 mt-5">Create</button>
+            <button type="reset" class="btn btn-danger mb-2 mt-5">Reset</button></h4>
         </div>
+      </div>
       </form>
     
  </body>

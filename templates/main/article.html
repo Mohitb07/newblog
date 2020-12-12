@@ -21,27 +21,22 @@
 {% endif %}
 
 {% block content %}
-<div id = "header"?>
+<div class="container" id = "header">
     <br><br><br><br><h1 style="text-align:center;">{{ article.title }}</h1>
-    <h3>Created-At:{{ article.createdAt }}</h3>
-    <h4>Written By:
+    <h3 class="lead">Created-At: {{ article.createdAt }}</h3>
+    <h4 class="lead">Written By:
         {% for author in article.authors.all %}
             <a href ="{% url 'get_author' author.id %}">
             {{ author }},
             </a>
         {% endfor %}
     </h4>
+    <hr style="border: 1px solid black;">
     <div>
-
-        <p style="text-align: center; max-width: 100%; white-space: pre-wrap;">
-            
-            {{article.content}}}
-            
+        <p class="lead" style="font-size:x-large;line-height:2.5rem;max-width: 100%; white-space: pre-wrap;">
+         {{article.content}}          
         </p>
     </div>
 </div>
-
-
-
 
 {% endblock %}
